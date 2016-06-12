@@ -6,7 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-        <java.version>1.8</java.version>
+		<java.version>1.8</java.version>
 
 		<rome.version>1.5.0</rome.version>
 
@@ -14,7 +14,7 @@
 		<jodatime-jsptags.version>1.1.1</jodatime-jsptags.version>
 		<jodatime.version>2.5</jodatime.version>
 		<jadira-usertype-core.version>3.2.0.GA</jadira-usertype-core.version>
-		
+
 		<!-- Web dependencies -->
 		<webjars-bootstrap.version>2.3.0</webjars-bootstrap.version>
 		<webjars-jquery-ui.version>1.10.3</webjars-jquery-ui.version>
@@ -22,6 +22,8 @@
 		<webjars-angular-ui-bootstrap>0.12.0</webjars-angular-ui-bootstrap>
 
 		<com.fasterxml.jackson-version>2.3.1</com.fasterxml.jackson-version>
+		
+		<assertj.version>3.4.1</assertj.version>
 	</properties>
 
 	<parent>
@@ -38,6 +40,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>${assertj.version}</version>
+			<scope>test</scope>
+		</dependency>
+
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
@@ -76,7 +90,7 @@
 			<artifactId>joda-time-jsptags</artifactId>
 			<version>${jodatime-jsptags.version}</version>
 		</dependency>
-		
+
 		<!-- Webjars (static dependencies distributed as JAR files) -->
 		<dependency>
 			<groupId>org.webjars</groupId>
@@ -98,7 +112,7 @@
 			<artifactId>angular-ui-bootstrap</artifactId>
 			<version>${webjars-angular-ui-bootstrap}</version>
 		</dependency>
-		
+
 		<!-- Jackson2 -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
