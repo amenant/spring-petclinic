@@ -11,10 +11,12 @@ import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(BootApplication.class)
 @ActiveProfiles("test")
+@Transactional
 public class ClinicServiceSpringDataJpaTests {
 
 	@Autowired
@@ -28,5 +30,12 @@ public class ClinicServiceSpringDataJpaTests {
         owners = this.clinicService.findOwnerByLastName("Daviss");
         Assertions.assertThat(owners.size()).isEqualTo(0);
     }
+	
+	@Test
+    public void deleteOwners() {
+		this.clinicService.deleteOwner("Davis");
+		Collection<Owner> owners = this.clinicService.findOwnerByLastName("Davis");
+		Assertions.assertThat(owners.size()).isEqualTo(0);
+	}
 	
 }
