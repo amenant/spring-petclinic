@@ -51,5 +51,7 @@ public interface ClinicService {
     Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException;
 
 	Collection<Pet> findPets() throws DataAccessException;
+	
+	void deleteOwner(String lastname) throws DataAccessException;
 
 }

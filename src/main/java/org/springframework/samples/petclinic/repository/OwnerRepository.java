@@ -75,6 +75,12 @@ public interface OwnerRepository {
      * @see BaseEntity#isNew
      */
     void save(Owner owner) throws DataAccessException;
+    
+    /**
+     * Delete an <code>Owner</code> from the data store.
+     * @param lastName Value to search for
+     */
+    public void deleteByLastName(String lastName);
 
 
 }

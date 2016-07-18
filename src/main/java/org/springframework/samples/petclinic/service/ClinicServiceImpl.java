@@ -116,4 +116,10 @@ public class ClinicServiceImpl implements ClinicService {
 	public Collection<Pet> findPetByName(String name) throws DataAccessException {
 		return petRepository.findByName(name);
 	}
+
+	@Override
+	@Transactional
+	public void deleteOwner(String lastname) throws DataAccessException {
+		ownerRepository.deleteByLastName(lastname);		
+	}
 }
