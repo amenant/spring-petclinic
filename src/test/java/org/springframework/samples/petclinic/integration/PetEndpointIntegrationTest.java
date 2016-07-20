@@ -36,8 +36,6 @@ public class PetEndpointIntegrationTest {
         ResponseEntity<List<Pet>> response = restTemplate.exchange(URL, HttpMethod.GET, HttpEntity.EMPTY, new ParameterizedTypeReference<List<Pet>>() {});
         assertThat(response).hasFieldOrPropertyWithValue("statusCode", HttpStatus.OK);
         assertThat(response.getBody()).hasSize(13);
-
     }
-
 
 }

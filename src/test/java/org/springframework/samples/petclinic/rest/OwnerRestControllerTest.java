@@ -28,31 +28,18 @@ public class OwnerRestControllerTest {
 
     @Test
     public void testCreate() throws Exception {
-        Owner owner = new Owner();
-        Owner responseOwner = unit.create(owner);
 
-        assertThat(responseOwner).isNotNull();
-
-        Mockito.verify(mockClinicService).saveOwner(owner);
     }
 
     @Test
     public void testCreateUsingWhitebox() throws Exception {
-        mockClinicServiceWB = Mockito.mock(ClinicService.class);
-        Whitebox.setInternalState(unit, "clinicService", mockClinicServiceWB);
+        // Create a new Mock ClinicService and use Whitebox
+        // to inject it in
 
-        Owner owner = new Owner();
-        Owner responseOwner = unit.create(owner);
+        // Show that the Whitebox injected ClinicService mock is different from the original
+        // in @Before
 
-        assertThat(responseOwner).isNotNull();
-
-        ArgumentCaptor<Owner> ownerArgumentCaptor = ArgumentCaptor.forClass(Owner.class);
-
-        Mockito.verify(mockClinicService, never()).saveOwner(owner);
-        Mockito.verify(mockClinicServiceWB).saveOwner(ownerArgumentCaptor.capture());
-
-        assertThat(ownerArgumentCaptor.getValue()).isEqualTo(owner);
-
+        // Demo usage of ArgumentCaptor to capture parameters passed into mocks
     }
 
     @Test
